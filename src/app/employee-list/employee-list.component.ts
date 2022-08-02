@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { EmployeeNewModalComponent } from './../employee-new-modal/employee-new-modal.component';
+import { Component, OnInit, ViewChild } from '@angular/core';
 // import Employe from '../employees';
 import { EmployeeService, Employee } from '../employee.service';
 
@@ -9,9 +10,19 @@ import { EmployeeService, Employee } from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  //employees_ = Employe.employees;
+  @ViewChild(EmployeeNewModalComponent) // Pegar a referencia de um elemento
+  employeeNewModal!: EmployeeNewModalComponent;
 
-  constructor(public  employeeService: EmployeeService) { }
+  constructor(public  employeeService: EmployeeService) {
+    console.log(this.employeeNewModal);
+
+    setTimeout(()=> {
+       console.log(this.employeeNewModal);
+       this.employeeNewModal.show();
+    }, 2000)
+
+
+  }
 
   ngOnInit(): void {
   }
