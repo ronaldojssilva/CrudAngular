@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Novo empregado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Nome</label>
+          <input class="form-control"  type="text" [(ngModel)]="employee.name"> <br>
+        </div>
+        <div class="form-group">
+          <label>Salary</label>
+          <input class="form-control" type="text" [(ngModel)]="employee.salary"> <br>
+        </div>
+        <div class="form-group" [hidden]="employee.salary>=1000">
+          <label>Bonus</label>
+          <input class="form-control" type="text" [(ngModel)]="employee.bonus"> <br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Incluir</button>
+        <!-- <button type="button" (click)="addEmployee($event)">Adicionar o empregado</button> -->
+      </div>
+    </div>
+  </div>
+</div>
