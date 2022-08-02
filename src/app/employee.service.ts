@@ -8,7 +8,7 @@ export interface Employee{
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  //devido a essa propriedade não precisa registrar o servico no app.module. fazer a importacao desse servico onde ele for usado.
 })
 export class EmployeeService {
   employees: Employee[] = [];

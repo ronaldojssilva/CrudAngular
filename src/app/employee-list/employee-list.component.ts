@@ -10,25 +10,24 @@ import { EmployeeService, Employee } from '../employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
+  employee!: Employee;
+  showMessageSuccess = false;
+
   @ViewChild(EmployeeNewModalComponent) // Pegar a referencia de um elemento
   employeeNewModal!: EmployeeNewModalComponent;
 
   constructor(public  employeeService: EmployeeService) {
-    console.log(this.employeeNewModal);
-
-    setTimeout(()=> {
-       console.log(this.employeeNewModal);
-       this.employeeNewModal.show();
-    }, 2000)
-
-
   }
 
   ngOnInit(): void {
   }
 
-  getSalaryColor(employee: Employee){
-     return employee.salary > 20000 ? 'green': null;
+  openNewModal(){
+    this.employeeNewModal.show();
   }
 
+  onNewEmployee(employee: Employee){
+    this.employee = employee;
+    this.showMessageSuccess = true;
+  }
 }

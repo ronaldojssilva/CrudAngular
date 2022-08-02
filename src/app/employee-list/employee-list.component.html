@@ -1,9 +1,17 @@
 <div class="container">
+  <alert-success [hidden]="!showMessageSuccess">
+    O empregado <strong>{{employee?.name}}</strong> foi cadastrado com sucesso!
+  </alert-success>
   <div class="row">
     <h1>Nossos empregados</h1>
     <p salaryColor="valo"></p>
     <table class="table table-striped">
       <thead>
+        <tr>
+          <td colspan="3">
+            <button class="btn btn-primary" (click)="openNewModal()">Novo empregado</button>
+          </td>
+        </tr>
         <tr>
           <th>Nome</th>
           <th>Salário</th>
@@ -23,4 +31,4 @@
   </div>
 </div>
 
-<employee-new-modal></employee-new-modal>
+<employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>
