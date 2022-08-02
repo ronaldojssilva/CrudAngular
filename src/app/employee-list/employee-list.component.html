@@ -1,21 +1,24 @@
-<p>Listagem de empregados</p>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Salário</th>
-      <th>Bonus</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let employee of employeeService.employees let i=index;" [id] = "'tr'+ i">
-      <td>{{employee.name}}</td>
-      <!-- <td [style.color]="getSalaryColor(employee)" >{{employee.salary}}</td> -->
-      <td [ngClass]="{'salary-expansive': employee.salary >20000,
-                      'salary-cheap': employee.salary <1000}" >{{employee.salary}}</td>
-      <!-- <td [innerHtml]="employee.name"></td>
-      <td [innerHtml]="employee.salary"></td> -->
-      <td>{{employee.bonus}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <h1>Nossos empregados</h1>
+    <p SalaryColor></p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Salário</th>
+          <th>Bonus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeService.employees let i=index;" [id] = "'tr'+ i">
+          <td>{{employee.name}}</td>
+          <td [ngClass]="{'salary-expansive': employee.salary >20000,
+                          'salary-cheap': employee.salary <1000}" >{{employee.salary}}</td>
+          <td>{{employee.bonus}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
