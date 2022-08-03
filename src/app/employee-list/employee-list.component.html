@@ -4,7 +4,6 @@
   </alert-success>
   <div class="row">
     <h1>Nossos empregados</h1>
-    <p salaryColor="valo"></p>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -22,7 +21,7 @@
       <tbody>
         <tr *ngFor="let employee of employeeService.employees let i=index;" [id] = "'tr'+ i">
           <td>{{employee.name}}</td>
-          <td [innerHtml] = "employee.salary" salaryColor="{{employee.salary}}" x="valor"></td>
+          <td [innerHtml] = "employee.salary" [salaryColor]="employee.salary"></td>
           <!-- <td [ngClass]="{'salary-expansive': employee.salary >20000,
                           'salary-cheap': employee.salary <1000}" >{{employee.salary}}</td> -->
           <td>{{employee.bonus}}</td>
