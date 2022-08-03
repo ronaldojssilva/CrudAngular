@@ -26,4 +26,9 @@ export class EmployeeService {
     // console.log(this.employees);
   }
 
+  destroyEmployee(employee: Employee){
+    const index =  this.employees.indexOf(employee);
+    this.employees.splice(index, 1);
+  }
+
 }
