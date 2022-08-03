@@ -1,18 +1,16 @@
-import { Component, ElementRef, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Employee} from '../employee.service';
+import { Component, ElementRef, OnInit, Output, EventEmitter } from '@angular/core';
+import { Employee, EmployeeService } from '../../services/employee.service';
 
 declare const $: any;
 
 @Component({
-  selector: 'employee-edit-modal',
-  templateUrl: './employee-edit-modal.component.html',
-  styleUrls: ['./employee-edit-modal.component.css']
+  selector: 'employee-new-modal',
+  templateUrl: './employee-new-modal.component.html',
+  styleUrls: ['./employee-new-modal.component.css']
 })
-export class EmployeeEditModalComponent implements OnInit {
+export class EmployeeNewModalComponent implements OnInit {
 
-  @Input()
-  employee: Employee//;
-   = {
+  employee: Employee = {
     name: '',
     salary: 0,
     bonus: 0
@@ -21,7 +19,7 @@ export class EmployeeEditModalComponent implements OnInit {
   @Output()
   onSubmit: EventEmitter<Employee> = new EventEmitter<Employee>();
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +28,7 @@ export class EmployeeEditModalComponent implements OnInit {
   addEmployee(){
     console.log('teste')
     const copy = Object.assign({}, this.employee);
+    this.employeeService.addEmployee(copy);
     this.onSubmit.emit(copy);
     this.hide();
   }

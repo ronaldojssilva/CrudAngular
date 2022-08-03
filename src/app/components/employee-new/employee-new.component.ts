@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { bindCallback } from 'rxjs';
 // import Employe from '../employees';
-import { Employee, EmployeeService } from '../employee.service';
+import { Employee, EmployeeService } from './../../services/employee.service';
 
 @Component({
   selector: 'employee-new',
