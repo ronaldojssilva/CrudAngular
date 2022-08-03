@@ -12,6 +12,7 @@ import { AlertSuccessComponent } from './components/alert-success/alert-success.
 import { EmployeeDeleteModalComponent } from './components/employee-delete-modal/employee-delete-modal.component';
 import { MyCurrencyPipe } from './pipes/my-currency.pipe';
 import { TesteComponent } from './teste/teste.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TesteComponent } from './teste/teste.component';
     AlertSuccessComponent,
     EmployeeDeleteModalComponent,
     MyCurrencyPipe,
-    TesteComponent
+    TesteComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
