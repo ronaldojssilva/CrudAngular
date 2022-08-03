@@ -7,6 +7,7 @@ import { EmployeeNewComponent } from './employee-new/employee-new.component';
 import { FormsModule } from '@angular/forms';
 import { SalaryColorDirective } from './salary-color.directive';
 import { EmployeeNewModalComponent } from './employee-new-modal/employee-new-modal.component';
+import { EmployeeEditModalComponent } from './employee-edit-modal/employee-edit-modal.component';
 import { AlertSuccessComponent } from './alert-success/alert-success.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { AlertSuccessComponent } from './alert-success/alert-success.component';
     EmployeeNewComponent,
     SalaryColorDirective,
     EmployeeNewModalComponent,
+    EmployeeEditModalComponent,
     AlertSuccessComponent
   ],
   imports: [

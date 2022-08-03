@@ -16,6 +16,7 @@
           <th>Nome</th>
           <th>Salário</th>
           <th>Bonus</th>
+          <th>Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,9 @@
           <!-- <td [ngClass]="{'salary-expansive': employee.salary >20000,
                           'salary-cheap': employee.salary <1000}" >{{employee.salary}}</td> -->
           <td>{{employee.bonus}}</td>
+          <td>
+            <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -32,3 +36,4 @@
 </div>
 
 <employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>
+<employee-edit-modal [employee]="employeeToEdit" (onSubmit)="onEditEmployee($event)"></employee-edit-modal>
