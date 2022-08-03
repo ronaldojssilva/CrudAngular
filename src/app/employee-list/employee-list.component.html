@@ -20,8 +20,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let employee of employeeService.employees let i=index;" [id] = "'tr'+ i">
-          <td>{{employee.name}}</td>
-          <td [innerHtml] = "employee.salary" [salaryColor]="employee.salary"></td>
+          <td>{{employee.name | uppercase}} </td>
+          <td [innerHtml] = "employee.salary | myCurrency" [salaryColor]="employee.salary"></td>
           <!-- <td [ngClass]="{'salary-expansive': employee.salary >20000,
                           'salary-cheap': employee.salary <1000}" >{{employee.salary}}</td> -->
           <td>{{employee.bonus}}</td>
