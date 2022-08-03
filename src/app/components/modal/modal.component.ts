@@ -9,7 +9,14 @@ declare const $: any;
       <div class="modal-dialog">
         <div class="modal-content">
           <!-- essa tag ng-content é usada para permitir transportar um conteúdo para ca. -->
-          <ng-content></ng-content>
+          <div class="modal-header">
+            <ng-content select="[modal-title]"></ng-content>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <ng-content select="[modal-body]"></ng-content>
+          <ng-content select="[modal-footer]"></ng-content>
         </div>
       </div>
     </div>
