@@ -29,6 +29,10 @@ export class ModalComponent implements OnInit {
   constructor(private element: ElementRef) { }
 
   ngOnInit(): void {
+    const nativeElemet: HTMLElement = this.element.nativeElement;
+    nativeElemet.querySelector('[modal-title]')?.classList.add('modal-title');
+    nativeElemet.querySelector('[modal-body]')?.classList.add('modal-body');
+    nativeElemet.querySelector('[modal-footer]')?.classList.add('modal-footer');
   }
 
   hide(){
