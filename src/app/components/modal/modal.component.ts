@@ -43,11 +43,11 @@ export class ModalComponent implements OnInit {
     // https://getbootstrap.com/docs/5.2/components/modal/#events
     //e:any são as informações do evento que ocorreu.
     $(this.divModal).on('hidden.bs.modal', (e: any) => {
-      console.log('escondido', e);
+      //console.log('escondido', e);
       this.onHide.emit(e);
     })
     $(this.divModal).on('shown.bs.modal', (e: any) => {
-      console.log('mostrado', e);
+      //console.log('mostrado', e);
       this.onShow.emit(e);
     })
   }

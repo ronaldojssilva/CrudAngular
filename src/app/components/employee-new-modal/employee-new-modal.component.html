@@ -1,7 +1,8 @@
 <form (submit)="addEmployee()">
   <!-- Modal -->
   <!-- Chamar onHide ou onShow não é obrigatório e passar $event também não obrigatório. -->
-  <modal (onHide)="fechou($event)" (onShow)="mostrou($event)">
+  <!-- <modal (onHide)="fechou($event)" (onShow)="mostrou($event)"> -->
+  <modal>
     <h5 modal-title>Novo empregado</h5>
     <div modal-body>
       <div class="form-group">
