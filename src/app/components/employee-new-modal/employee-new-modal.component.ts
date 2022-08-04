@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Employee, EmployeeService } from '../../services/employee.service';
-import { ModalComponent } from '../modal/modal.component';
 import Modalable from './../modal/modalable';
 
 declare const $: any;
@@ -28,12 +27,19 @@ export class EmployeeNewModalComponent extends Modalable implements OnInit {
   ngOnInit(): void {
   }
 
-
   addEmployee(){
     console.log('teste')
     const copy = Object.assign({}, this.employee);
     this.employeeService.addEmployee(copy);
     this.onSubmit.emit(copy);
     this.hide();
+  }
+
+  fechou(event: any){
+    console.log(event);
+  }
+
+  mostrou(event: any){
+    console.log(event);
   }
 }

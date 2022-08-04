@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 
 declare const $: any;
 
@@ -26,6 +26,12 @@ declare const $: any;
 })
 export class ModalComponent implements OnInit {
 
+  @Output()
+  onHide: EventEmitter<any> = new EventEmitter();
+
+  @Output()
+  onShow: EventEmitter<any> = new EventEmitter();
+
   constructor(private element: ElementRef) { }
 
   ngOnInit(): void {
@@ -33,6 +39,17 @@ export class ModalComponent implements OnInit {
     nativeElemet.querySelector('[modal-title]')?.classList.add('modal-title');
     nativeElemet.querySelector('[modal-body]')?.classList.add('modal-body');
     nativeElemet.querySelector('[modal-footer]')?.classList.add('modal-footer');
+
+    // https://getbootstrap.com/docs/5.2/components/modal/#events
+    //e:any são as informações do evento que ocorreu.
+    $(this.divModal).on('hidden.bs.modal', (e: any) => {
+      console.log('escondido', e);
+      this.onHide.emit(e);
+    })
+    $(this.divModal).on('shown.bs.modal', (e: any) => {
+      console.log('mostrado', e);
+      this.onShow.emit(e);
+    })
   }
 
   hide(){
