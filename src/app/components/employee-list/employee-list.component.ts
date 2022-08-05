@@ -29,7 +29,7 @@ export class EmployeeListComponent implements OnInit {
     bonus: 0
   };
 
-  @ViewChild(EmployeeNewModalComponent) // Pegar a referencia de um elemento
+  @ViewChild('employeeNewModal') // Pegar a referencia de um elemento
   employeeNewModal!: EmployeeNewModalComponent;
 
   @ViewChild(EmployeeEditModalComponent) // Pegar a referencia de um elemento

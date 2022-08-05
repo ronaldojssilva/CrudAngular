@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewInit, Input, ElementRef } from '@angular/core';
 import { Employee, EmployeeService } from '../../services/employee.service';
 import { Modalable } from './../modal/modalable';
 
@@ -19,6 +19,9 @@ export class EmployeeNewModalComponent extends Modalable implements OnInit, Afte
 
   @Output()
   onSubmit: EventEmitter<Employee> = new EventEmitter<Employee>();
+
+  @ViewChild('inputName')
+  inputName!: ElementRef;
 
   // //tem que expor esse onHide se eu quiser expor isso (o onHide do modulabe generico) no componente de lista
   // @Output()
@@ -45,6 +48,10 @@ export class EmployeeNewModalComponent extends Modalable implements OnInit, Afte
 
     //como a parte acima foi removida para o a classe Modalable eu chamo o método no pai.
     super.ngAfterViewInit();
+    this.onShow.subscribe(() => {
+      //console.log(this.inputName);
+      this.inputName.nativeElement.focus();
+    });
   }
 
   addEmployee(){
