@@ -1,2 +1,15 @@
+<ng-container *ngTemplateOutlet="logo"></ng-container>
+<p>
+  <ng-container *ngTemplateOutlet="flagLogo? logo:logoSmall"></ng-container>
+</p>
 <employee-list></employee-list>
 <app-teste></app-teste>
+<ng-container *ngTemplateOutlet="logo"></ng-container>
+
+<ng-template #logo>
+  <img src="/assets/anular-dotnet.png" alt="">
+</ng-template>
+
+<ng-template #logoSmall>
+  <img src="/assets/anular-dotnet.png" alt="" width="30" height="30">
+</ng-template>
