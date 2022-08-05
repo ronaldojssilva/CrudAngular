@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmployeeService, Employee } from '../../services/employee.service';
 import { EmployeeEditModalComponent } from './../employee-edit-modal/employee-edit-modal.component';
 import { EmployeeDeleteModalComponent } from './../employee-delete-modal/employee-delete-modal.component';
+import { EmployeeDetailModalComponent } from '../employee-detail-modal/employee-detail-modal.component';
 
 @Component({
   selector: 'employee-list',
@@ -28,6 +29,11 @@ export class EmployeeListComponent implements OnInit {
     salary: 0,
     bonus: 0
   };
+  employeeToDetail: Employee= {
+    name: '',
+    salary: 0,
+    bonus: 0
+  };
 
   @ViewChild('employeeNewModal') // Pegar a referencia de um elemento
   employeeNewModal!: EmployeeNewModalComponent;
@@ -38,10 +44,18 @@ export class EmployeeListComponent implements OnInit {
   @ViewChild(EmployeeDeleteModalComponent) // Pegar a referencia de um elemento
   employeeDeleteModal!: EmployeeDeleteModalComponent;
 
+  @ViewChild(EmployeeDetailModalComponent) // Pegar a referencia de um elemento
+  employeeDetailModal!: EmployeeDetailModalComponent;
+
   constructor(public  employeeService: EmployeeService) {
   }
 
   ngOnInit(): void {
+  }
+
+  openDetailModal(employee: Employee){
+    this.employeeToDetail = employee
+    this.employeeDetailModal.show();
   }
 
   openNewModal(){
