@@ -19,21 +19,28 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employeeService.employees let i=index;" [id] = "'tr'+ i">
-          <td>
-            <a href="javascript:void(0);" (click)="openDetailModal(employee)">
-              {{employee.name | uppercase}}
-            </a>
-          </td>
-          <td [innerHtml] = "employee.salary | myCurrency" [salaryColor]="employee.salary"></td>
-          <!-- <td [ngClass]="{'salary-expansive': employee.salary >20000,
-                          'salary-cheap': employee.salary <1000}" >{{employee.salary}}</td> -->
-          <td>{{employee.bonus}}</td>
-          <td>
-            <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a> |
-            <a href="javascript:void(0)" (click)="openDestroyModal(employee)">Excluir</a>
-          </td>
-        </tr>
+        <!-- ngContainer(usado para trabahar em conjunto com diretivas estruturais. container de elementos, não é renderizado, não tem DOM) vs ngTemplate -->
+        <!--nós temos dpos tipos de diretivas no angular-->
+        <!--attributes(salaryColor> diretiva de atributo) e estruturais (são por exemplo *ngFor, *ngIf)-->
+        <ng-container *ngFor="let employee of employeeService.employees let i=index;" >
+          <tr [id] = "'tr'+ i">
+            <ng-container *ngIf="employee.salary > 1000">
+              <td>
+                <a href="javascript:void(0);" (click)="openDetailModal(employee)">
+                  {{employee.name | uppercase}}
+                </a>
+              </td>
+              <td [innerHtml] = "employee.salary | myCurrency" [salaryColor]="employee.salary"></td>
+              <!-- <td [ngClass]="{'salary-expansive': employee.salary >20000,
+                              'salary-cheap': employee.salary <1000}" >{{employee.salary}}</td> -->
+              <td>{{employee.bonus}}</td>
+              <td>
+                <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a> |
+                <a href="javascript:void(0)" (click)="openDestroyModal(employee)">Excluir</a>
+              </td>
+            </ng-container>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>
