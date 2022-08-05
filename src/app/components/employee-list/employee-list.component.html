@@ -24,7 +24,7 @@
         <!--attributes(salaryColor> diretiva de atributo) e estruturais (são por exemplo *ngFor, *ngIf)-->
         <ng-container *ngFor="let employee of employeeService.employees let i=index;" >
           <tr [id] = "'tr'+ i">
-            <ng-container *ngIf="employee.salary > 1000">
+            <ng-container *ngIf="employee.salary > 10">
               <td>
                 <a href="javascript:void(0);" (click)="openDetailModal(employee)">
                   {{employee.name | uppercase}}
