@@ -1,15 +1,27 @@
-<ng-container *ngTemplateOutlet="logo"></ng-container>
+<ng-container *ngTemplateOutlet="logo; context: objContext"></ng-container>
 <p>
-  <ng-container *ngTemplateOutlet="flagLogo? logo:logoSmall"></ng-container>
+  <!-- <ng-container *ngTemplateOutlet="flagLogo? logo:logoSmall; context: objContext"></ng-container> -->
+  <ng-container *ngTemplateOutlet="logo; context: objContext"></ng-container>
 </p>
 <employee-list></employee-list>
 <app-teste></app-teste>
 <ng-container *ngTemplateOutlet="logo"></ng-container>
-
-<ng-template #logo>
+<!--
+<ng-template #logo let-name="name">
   <img src="/assets/anular-dotnet.png" alt="">
+  {{title}}
+  {{name}}
+</ng-template> -->
+<ng-template #logo let-nome="name" let-variavel>
+  <img src="/assets/anular-dotnet.png" alt="">
+  {{title}}
+  {{nome}}
+  {{variavel}}
+  <button (click)="mudarNome()">Alterar nome</button>
 </ng-template>
 
-<ng-template #logoSmall>
+<ng-template #logoSmall let-nome1="name">
   <img src="/assets/anular-dotnet.png" alt="" width="30" height="30">
+  {{title}}
+
 </ng-template>
