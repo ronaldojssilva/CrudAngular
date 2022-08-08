@@ -34,6 +34,7 @@ export class EmployeeListComponent implements OnInit {
     salary: 0,
     bonus: 0
   };
+  isLoading = true;
 
   @ViewChild('employeeNewModal') // Pegar a referencia de um elemento
   employeeNewModal!: EmployeeNewModalComponent;
@@ -51,6 +52,9 @@ export class EmployeeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 5000);
   }
 
   openDetailModal(employee: Employee){
